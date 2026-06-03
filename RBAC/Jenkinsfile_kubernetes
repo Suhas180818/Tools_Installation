@@ -3,6 +3,7 @@ pipeline {
   agent any 
 
   environment{
+
     SA_ADMIN_TOKEN = credentials('sa-admin-tokem')
 
   }
@@ -25,6 +26,7 @@ pipeline {
     stage('Kubectl') {
       steps { 
         sh'''
+          set -x
           ARCHITECTURE=$(uname -m)
           if [[ $ARCHITECTURE == "x86_64" ]]; then
              curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -36,7 +38,7 @@ pipeline {
            echo "Need x86-64 Linux machine" 
            exit 1; 
           fi
-  
+          
           cat kubectl --version
 
         '''
