@@ -47,7 +47,7 @@ pipeline {
             sh'''
                kubectl config set-cluster Devops-cluster --server=https://172.31.41.59:6443 --insecure-skip-tls-verify=true
 
-               kubectl config set-credentials sa-admin --token=${env.SA_ADMIN_TOKEN}  
+               kubectl config set-credentials sa-admin --token=$SA_ADMIN_TOKEN 
 
                kubectl config set-context QA-Access --cluster=Devops-cluster --user=sa-admin 
 
