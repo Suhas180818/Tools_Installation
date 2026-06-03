@@ -4,7 +4,7 @@ pipeline {
 
   environment{
 
-    SA_ADMIN_TOKEN = credentials('sa-admin-tokem')
+    SA_ADMIN_TOKEN = credentials('20838008-9fb1-48d8-a7bc-e4bcb2bca142')
 
   }
 
