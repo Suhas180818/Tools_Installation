@@ -59,18 +59,13 @@ pipeline {
     
     stage ('POD-DEPLOYMENT'){
         steps {
-
+          sh'''
           kubectl apply -f application_controllers/deployment.yaml
-
+          
+          '''
         }
 
     }
-  
-  
   }
-
-
-
-
     
 }
