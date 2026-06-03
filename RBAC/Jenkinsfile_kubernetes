@@ -10,13 +10,15 @@ pipeline {
   stages{
     stage('Git_checkout') {
       steps {
-        checkout 
-            scm: scmGit (
+        checkout ([ 
+            $class : 'GitSCM',
             branches: [[name: '*/master']], 
             extensions: [], 
-            userRemoteConfigs: [[url: 'https://github.com/Suhas180818/Tools_Installation.git']]
-            
-            )
+            userRemoteConfigs: [[
+                credentialsId: 'Git_repo_acess',
+                url: 'https://github.com/Suhas180818/Tools_Installation.git'
+            ]]
+        ])
       }
     }
   
