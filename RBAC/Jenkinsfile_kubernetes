@@ -31,12 +31,12 @@ pipeline {
           if [[ $ARCHITECTURE == "x86_64" ]]; then
              curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
-          elif [[ $ARCHITECTURE == "ARM64" ]]; 
+          elif [[ $ARCHITECTURE == "aarch64" ]]; then
              curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
 
           else
            echo "Need x86-64 Linux machine" 
-           exit 1; 
+           exit 1
           fi
           
           cat kubectl --version
